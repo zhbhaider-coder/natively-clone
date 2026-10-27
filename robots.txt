@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://natively-clone.pages.dev/sitemap.xml

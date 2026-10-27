@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live AI Interview Copilot Demo — Try It Free in Your Browser | Natively</title>
+<meta name="description" content="Try a working AI interview copilot in your browser: live mic transcription, real-time answers from your resume and job description, notes and summaries. Free, no sign-up — bring your own Gemini or OpenAI key.">
+<link rel="canonical" href="https://natively-clone.pages.dev/demo">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Natively">
+<meta property="og:title" content="Live AI Interview Copilot Demo — Try It Free in Your Browser">
+<meta property="og:description" content="A working AI copilot in your browser: live mic transcription, real-time answers from your resume and job description, notes and summaries. Bring your own key.">
+<meta property="og:url" content="https://natively-clone.pages.dev/demo">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Live AI Interview Copilot Demo — Try It Free in Your Browser">
+<meta name="twitter:description" content="A working AI copilot in your browser: live mic transcription, real-time answers from your resume and job description, notes and summaries. Bring your own key.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Natively — Live Copilot Demo","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://natively-clone.pages.dev/demo","description":"A working AI copilot in your browser: live mic transcription, real-time answers from your resume and job description, notes and summaries. Bring your own API key.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0f0f'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="mark">N</span> Natively</a>
+    <nav class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#modes">Modes</a>
+      <a href="demo.html">Live Demo</a>
+      <a href="pricing.html">Pricing</a>
+    </nav>
+    <a class="btn small" href="pricing.html" style="margin-left:auto">Pricing</a>
+  </div>
+</header>
+
+<section style="padding-top:44px">
+  <div class="wrap">
+    <h1>Live copilot demo</h1>
+    <p class="lede">Speak into your mic — or type an interviewer question below. The copilot answers from your resume and job description, in real time. No sign-up, no account, no server: your keys stay in your own browser.</p>
+
+    <div class="demo-grid">
+      <!-- Setup -->
+      <div class="panel">
+        <h3>1 · Your keys (stored only in this browser)</h3>
+        <label for="provider">AI provider</label>
+        <select id="provider">
+          <option value="gemini">Google Gemini (free tier works)</option>
+          <option value="openai">OpenAI</option>
+        </select>
+        <label for="geminiKey">Gemini API key</label>
+        <input type="password" id="geminiKey" placeholder="Paste your Gemini key here" autocomplete="off">
+        <label for="openaiKey">OpenAI API key <span class="muted">(only if OpenAI selected)</span></label>
+        <input type="password" id="openaiKey" placeholder="sk-…" autocomplete="off">
+        <div class="row" style="margin-top:10px">
+          <button class="btn small" id="saveKeys">Save keys</button>
+          <button class="btn small" id="testKey">Test key</button>
+          <button class="btn small ghost" id="clearKeys">Clear keys</button>
+          <span class="status" id="keyStatus">No key saved</span>
+        </div>
+        <p class="muted" style="margin-top:8px">Keys are saved in this browser's localStorage only. They are never in the code and never sent anywhere except to Google / OpenAI when you ask a question. <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Get a free Gemini key →</a></p>
+
+        <h3 style="margin-top:18px">2 · Context — what the copilot knows</h3>
+        <label for="mode">Mode</label>
+        <select id="mode">
+          <option value="general">General</option>
+          <option value="technical">Technical Interview</option>
+          <option value="sales">Sales Mode</option>
+          <option value="recruiting">Recruiting</option>
+          <option value="jobsearch">Looking for Work</option>
+          <option value="team">Team Meet</option>
+          <option value="lecture">Lecture Mode</option>
+          <option value="seminar">Seminar</option>
+          <option value="callcenter">Call Center</option>
+        </select>
+        <label for="jd">Job description (paste as text)</label>
+        <textarea id="jd" placeholder="Paste the job description here — the copilot will shape answers around it."></textarea>
+        <label for="resume">Resume / background (paste as text)</label>
+        <textarea id="resume" placeholder="Paste your resume or a short summary of your experience."></textarea>
+      </div>
+
+      <!-- Live session -->
+      <div class="panel">
+        <h3>3 · Live session</h3>
+        <div class="row">
+          <button class="btn small" id="startBtn">🎙 Start listening</button>
+          <button class="btn small ghost" id="stopBtn" disabled>Stop</button>
+          <span class="status" id="micStatus">Mic idle</span>
+        </div>
+        <p class="kbd-note" style="margin-top:8px">Mic uses the Web Speech API — works in Chrome and Edge on desktop. Your speech is transcribed in the browser; only the text goes to the AI.</p>
+        <div class="meter" style="margin:12px 0 4px"><i id="micBar"></i></div>
+        <p class="muted" id="interim" style="min-height:20px"></p>
+
+        <label for="simInput">Or simulate the interviewer — type a question</label>
+        <div class="row">
+          <input type="text" id="simInput" placeholder='e.g. Tell me about yourself' style="flex:1">
+          <button class="btn small blue" id="askBtn">Ask</button>
+        </div>
+
+        <h3 style="margin-top:18px">Live transcript</h3>
+        <div class="log" id="log"><div class="line muted">Transcript will appear here. Start listening, or type a question above.</div></div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn small ghost" id="summarizeBtn">End session &amp; summarize</button>
+          <button class="btn small ghost" id="downloadBtn">Download transcript</button>
+        </div>
+      </div>
+
+      <!-- Answer -->
+      <div class="panel full">
+        <h3>💡 Suggested answer <span class="status" id="latency" style="float:right">—</span></h3>
+        <div class="answer-box" id="answerBox">The copilot's answer will appear here the moment the other person speaks — or the moment you type a question below. It answers every line, not only questions.</div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn small" id="answerBtn">Answer the last question now</button>
+          <button class="btn small ghost" id="copyAnswer">Copy answer</button>
+        </div>
+      </div>
+
+      <!-- Notes -->
+      <div class="panel full">
+        <h3>📝 Notes &amp; summary</h3>
+        <div class="answer-box" id="notesBox" style="min-height:80px">Press "End session &amp; summarize" to get a summary, key points, and action items from the transcript.</div>
+        <div class="row" style="margin-top:10px">
+          <button class="btn small ghost" id="copyNotes">Copy notes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>Product</h4><a href="demo.html">Live demo</a><a href="pricing.html">Pricing</a><a href="index.html#features">Features</a><a href="index.html#modes">Modes</a></div>
+      <div><h4>Compare</h4><a href="compare.html">Natively vs Final Round AI</a><a href="compare.html">Natively vs Parakeet AI</a><a href="compare.html">Natively vs Cluely</a><a href="compare.html">All comparisons</a></div>
+      <div><h4>Guides</h4><a href="ai-interview-copilot.html">What is an AI interview copilot?</a><a href="free-interview-assistant.html">Free AI interview assistant</a><a href="pricing.html">Plans &amp; licences</a><a href="sitemap.xml">Sitemap</a></div>
+      <div><h4>About</h4><a href="index.html">Home</a><a href="demo.html">Demo</a><a href="pricing.html">Pricing</a></div>
+    </div>
+    <p class="disclaimer">Unofficial rebuild for personal use — not affiliated with Natively. This demo runs entirely in your browser; API keys are stored only in localStorage on your device. Original product: heynatively.com.</p>
+  </div>
+</footer>
+<script src="demo.js"></script>
+</body>
+</html>

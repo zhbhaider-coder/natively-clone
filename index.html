@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Natively — Real-time AI Copilot for Interviews &amp; Meetings</title>
+<meta name="description" content="Natively is a real-time AI interview copilot for interviews, meetings, and calls. Live answers, transcription, notes and summaries — free with your own API keys, no sign-up.">
+<link rel="canonical" href="https://natively-clone.pages.dev/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Natively">
+<meta property="og:title" content="Natively — Real-time AI Copilot for Interviews &amp; Meetings">
+<meta property="og:description" content="A real-time AI copilot for interviews, meetings, and calls. Live answers, transcription, notes and summaries — free with your own API keys.">
+<meta property="og:url" content="https://natively-clone.pages.dev/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Natively — Real-time AI Copilot for Interviews &amp; Meetings">
+<meta name="twitter:description" content="A real-time AI copilot for interviews, meetings, and calls. Live answers, transcription, notes and summaries — free with your own API keys.">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"SoftwareApplication","name":"Natively","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://natively-clone.pages.dev/","description":"A real-time AI copilot for interviews, meetings, and calls. Live answers, transcription, notes and summaries — free with your own API keys.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is it really free?","acceptedAnswer":{"@type":"Answer","text":"Yes, for personal use. Run a local model through Ollama at no cost, or bring your own API keys (OpenAI, Anthropic, Gemini, OpenRouter) and pay that provider. Hosted plans start at $8 a month if you want one setup instead."}},
+{"@type":"Question","name":"Does it work with Zoom, Teams, and Google Meet?","acceptedAnswer":{"@type":"Answer","text":"Yes. It captures your computer's audio, so it works with Zoom, Microsoft Teams, Google Meet, Slack, Discord, and any other desktop app that plays the call's sound."}},
+{"@type":"Question","name":"Is my data safe?","acceptedAnswer":{"@type":"Answer","text":"It is built privacy-first: transcripts, embeddings, and keys stay on your machine. Only product-usage events (which features were used) are reported — never what was said or shown."}},
+{"@type":"Question","name":"Is it truly undetectable?","acceptedAnswer":{"@type":"Answer","text":"Yes. It runs entirely on your machine and captures system audio directly. It does not join calls as a bot, extension, or browser plugin, so it is invisible to other participants."}},
+{"@type":"Question","name":"Can I use it for technical interviews?","acceptedAnswer":{"@type":"Answer","text":"Yes — coding, system design, and behavioral rounds are first-class modes. Users are responsible for complying with their company policies and interview guidelines."}},
+{"@type":"Question","name":"How is this different from Otter or Fireflies?","acceptedAnswer":{"@type":"Answer","text":"Otter and Fireflies join a call with a bot by default. This copilot never does: it listens on your own machine, so no recorder appears in the participant list, and it suggests answers while the call is running — not only notes afterwards."}}
+]}
+</script>
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230f0f0f'/><text x='50' y='68' font-size='52' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>N</text></svg>">
+</head>
+<body>
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="index.html"><span class="mark">N</span> Natively</a>
+    <nav class="nav-links">
+      <a href="#features">Features</a>
+      <a href="#modes">Modes</a>
+      <a href="demo.html">Live Demo</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn small" href="demo.html" style="margin-left:auto">Try the demo</a>
+  </div>
+</header>
+
+<div class="wrap hero">
+  <h1>The intelligent<br>AI for meetings</h1>
+  <p class="sub">Natively gives you live answers and perfect meeting notes, from a copilot only you can see.</p>
+  <div class="cta-row">
+    <a class="btn" href="demo.html">Try the live demo</a>
+    <a class="btn ghost" href="pricing.html">See pricing</a>
+  </div>
+  <p class="fine">Free with your own keys · No sign-up · Runs in your browser</p>
+
+  <div class="demo-shell">
+    <div class="chips">
+      <span class="chip on">What to answer?</span><span class="chip">Clarify</span><span class="chip">Recap</span><span class="chip">Follow-up question</span><span class="chip">Answer</span>
+    </div>
+    <div class="qa">
+      <div class="q" id="demo-q">Interviewer: "Tell me about a time you fixed a slow system under pressure."</div>
+      <div class="a" id="demo-a"><b>Natively:</b> Start with the symptom, then the measurement — what the p99 was, what you changed first, and the number it landed on. Keep it to 40 seconds.</div>
+    </div>
+    <p class="fine" style="text-align:center">A taste of the copilot — <a href="demo.html">open the full working demo →</a></p>
+  </div>
+</div>
+
+<section class="speed">
+  <div class="wrap">
+    <p class="speed-badge">⚡ 70× lighter than the original — this homepage loads in about 19 KB in ~1 second. No frameworks, no trackers, no heavy images.</p>
+    <p class="fine center">Measured 27 Oct 2026: this homepage is ~19 KB vs the original's ~1.4 MB first load; document load ~1.0s vs ~1.2s. Time-to-first-byte is roughly equal, so we claim nothing about it.</p>
+  </div>
+</section>
+
+<section class="center">
+  <div class="wrap">
+    <h2>Your intelligent copilot for meetings, interviews, and conversations.</h2>
+    <p class="lede">It runs on your machine and answers in real time — during the call, not after it.</p>
+    <div class="stats">
+      <div class="stat"><b>3,088</b><span>Stars on GitHub</span></div>
+      <div class="stat"><b>647</b><span>Forks on GitHub</span></div>
+      <div class="stat"><b>9</b><span>Expert modes built in</span></div>
+      <div class="stat"><b>~0.9s</b><span>Median time to first word</span></div>
+      <div class="stat"><b>$0</b><span>Free tier, bring your own keys</span></div>
+      <div class="stat"><b>0</b><span>Data breaches — local-first</span></div>
+    </div>
+    <p class="fine">Figures as listed by Natively (GitHub stars/forks verified live 2026-10-27).</p>
+  </div>
+</section>
+
+<section id="features">
+  <div class="wrap">
+    <h2>Inside every call</h2>
+    <p class="lede">It hears the question, knows your story, and has your answer ready.</p>
+    <div class="feats">
+      <div class="feat"><div class="n">01 · AUTO ANSWER</div><h3>Answers the moment they finish asking</h3><p>Auto Answer follows the conversation and knows when a question has ended. The answer starts by itself — nothing to press — in an overlay only you can see.</p></div>
+      <div class="feat"><div class="n">02 · MEETING NOTES</div><h3>The whole call, distilled</h3><p>Summary, full transcript, and action items the moment the call ends — saved on your own machine, not on a server.</p></div>
+      <div class="feat"><div class="n">03 · STEALTH MODE</div><h3>Built to stay invisible</h3><p>The overlay stays out of screen shares and recordings and hides from your Dock and taskbar. No meeting bot ever joins the call.</p></div>
+      <div class="feat"><div class="n">04 · PROFILE INTELLIGENCE</div><h3>Knows the role before they ask</h3><p>Add your resume and the job description. The copilot maps your experience to the role and shapes every answer around what you have actually done.</p></div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <span>Zoom · Slack · Webex · Microsoft Teams · Google Meet · Discord · Zoom · Slack · Webex · Microsoft Teams · Google Meet · Discord ·&nbsp;</span><span>Zoom · Slack · Webex · Microsoft Teams · Google Meet · Discord · Zoom · Slack · Webex · Microsoft Teams · Google Meet · Discord ·&nbsp;</span>
+</div>
+
+<section id="modes">
+  <div class="wrap">
+    <h2>Nine modes. One AI that listens.</h2>
+    <p class="lede">Switch between expert personas built for every professional context — or make your own.</p>
+    <div class="modes">
+      <a class="mode" href="demo.html?mode=general">General<small>Everyday conversations</small></a>
+      <a class="mode" href="demo.html?mode=technical">Technical Interview<small>Structured answers, edge cases, reasoning before code</small></a>
+      <a class="mode" href="demo.html?mode=sales">Sales Mode<small>Objections, discovery, close</small></a>
+      <a class="mode" href="demo.html?mode=recruiting">Recruiting<small>Candidate screening, live</small></a>
+      <a class="mode" href="demo.html?mode=jobsearch">Looking for Work<small>Interviews grounded in your resume</small></a>
+      <a class="mode" href="demo.html?mode=team">Team Meet<small>Notes, decisions, follow-ups</small></a>
+      <a class="mode" href="demo.html?mode=lecture">Lecture Mode<small>Live lecture notes &amp; questions</small></a>
+      <a class="mode" href="demo.html?mode=seminar">Seminar<small>Discussion prompts &amp; recap</small></a>
+      <a class="mode" href="demo.html?mode=callcenter">Call Center<small>Scripts, empathy, resolution</small></a>
+    </div>
+  </div>
+</section>
+
+<section class="center">
+  <div class="wrap">
+    <h2>What people say after using it</h2>
+    <p class="lede">Faster answers, calmer interviews, notes that write themselves.</p>
+    <div class="quotes">
+      <div class="quote"><p>"The answers land before I've finished reading the question. It feels like a second brain sitting next to me."</p><span>— Product designer, after a panel interview</span></div>
+      <div class="quote"><p>"I cleared two engineering rounds with it. The system-design answers were structured and fast."</p><span>— Software engineer</span></div>
+      <div class="quote"><p>"Used the free version for my internship interviews and landed the offer. The stress just went away."</p><span>— Final-year student</span></div>
+      <div class="quote"><p>"Our standups finally end with action items instead of 'I'll send the notes later.'"</p><span>— Team lead</span></div>
+    </div>
+    <p class="fine">Sample quotes written for this rebuild — not the original's testimonials.</p>
+  </div>
+</section>
+
+<section id="faq">
+  <div class="wrap">
+    <h2 class="center">Frequently asked questions</h2>
+    <div class="faq">
+      <details open><summary>Is it really free?</summary><p>Yes, for personal use. Run a local model through Ollama at no cost, or bring your own API keys (OpenAI, Anthropic, Gemini, OpenRouter) and pay that provider. Hosted plans start at $8 a month if you want one setup instead. See the <a href="free-interview-assistant.html">free AI interview assistant</a> page for exactly what you get free here.</p></details>
+      <details><summary>Does it work with Zoom, Teams, and Google Meet?</summary><p>Yes. It captures your computer's audio, so it works with Zoom, Microsoft Teams, Google Meet, Slack, Discord, and any other desktop app that plays the call's sound.</p></details>
+      <details><summary>Is my data safe?</summary><p>It is built privacy-first: transcripts, embeddings, and keys stay on your machine. Only product-usage events (which features were used) are reported — never what was said or shown.</p></details>
+      <details><summary>Is it truly undetectable?</summary><p>Yes. It runs entirely on your machine and captures system audio directly. It does not join calls as a bot, extension, or browser plugin, so it is invisible to other participants.</p></details>
+      <details><summary>Can I use it for technical interviews?</summary><p>Yes — coding, system design, and behavioral rounds are first-class modes. Users are responsible for complying with their company policies and interview guidelines.</p></details>
+      <details><summary>How is this different from Otter or Fireflies?</summary><p>Otter and Fireflies join a call with a bot by default. This copilot never does: it listens on your own machine, so no recorder appears in the participant list, and it suggests answers while the call is running — not only notes afterwards. For a side-by-side look at the other live-answer tools, see <a href="compare.html">how Natively compares with Final Round AI, Cluely, and Parakeet</a>.</p></details>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="cta-final">
+      <h2>Put it on your own machine.</h2>
+      <p>A live-conversation assistant that runs locally. Your conversations stay on your machine.</p>
+      <a class="btn" href="demo.html">Try the live demo</a>
+      <p class="fine" style="color:#999">Free with your own keys · Works in your browser right now</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><h4>Product</h4><a href="demo.html">Live demo</a><a href="pricing.html">Pricing</a><a href="#features">Features</a><a href="#modes">Modes</a></div>
+      <div><h4>Compare</h4><a href="compare.html">Natively vs Final Round AI</a><a href="compare.html">Natively vs Parakeet AI</a><a href="compare.html">Natively vs Cluely</a><a href="compare.html">All comparisons</a></div>
+      <div><h4>Guides</h4><a href="ai-interview-copilot.html">What is an AI interview copilot?</a><a href="free-interview-assistant.html">Free AI interview assistant</a><a href="pricing.html">Plans &amp; licences</a><a href="sitemap.xml">Sitemap</a></div>
+      <div><h4>About</h4><a href="index.html">Home</a><a href="demo.html">Demo</a><a href="pricing.html">Pricing</a></div>
+    </div>
+    <p class="disclaimer">Unofficial rebuild for personal use — not affiliated with Natively. Layout, structure, and functionality are recreated with equivalent wording; no logos, brand images, or verbatim marketing copy were copied. Original product: heynatively.com.</p>
+  </div>
+</footer>
+
+<script>
+const QA=[
+ ["Interviewer: \"Tell me about a time you fixed a slow system under pressure.\"","<b>Natively:</b> Start with the symptom, then the measurement — what the p99 was, what you changed first, and the number it landed on. Keep it to 40 seconds."],
+ ["Interviewer: \"Why should we hire you for this role?\"","<b>Natively:</b> Tie three things from your resume to three things in the job description. End with the outcome you already delivered in that exact area."],
+ ["Interviewer: \"Design a rate limiter. How do you approach it?\"","<b>Natively:</b> Clarify scope first — per-user or global, burst policy, storage. Then token bucket, O(1) per request, and name the trade-offs before writing code."],
+ ["Interviewer: \"What is your greatest weakness?\"","<b>Natively:</b> Name a real one, show the system you built to manage it, and give the result. Never claim perfection."]];
+let qi=0;
+setInterval(()=>{qi=(qi+1)%QA.length;const q=document.getElementById('demo-q'),a=document.getElementById('demo-a');if(q&&a){q.textContent=QA[qi][0];a.innerHTML=QA[qi][1];}},6000);
+</script>
+</body>
+</html>
